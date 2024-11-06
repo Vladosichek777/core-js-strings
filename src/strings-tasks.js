@@ -413,8 +413,15 @@ function reverseWords(str) {
  *   invertCase('JavaScript is Fun') => 'jAVAsCRIPT IS fUN'
  *   invertCase('12345') => '12345'
  */
-function invertCase(/* str */) {
-  throw new Error('Not implemented');
+function invertCase(str) {
+  const arraFromString = str.split('');
+  const reverseCaseAr = arraFromString.map(function replaceItem(item) {
+    if (item.toLowerCase() === item) {
+      return item.toUpperCase();
+    }
+    return item.toLowerCase();
+  });
+  return reverseCaseAr.join('');
 }
 
 /**
