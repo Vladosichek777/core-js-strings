@@ -306,8 +306,27 @@ function containsSubstring(str, substring) {
  *   countVowels('aEiOu') => 5
  *   countVowels('XYZ') => 1
  */
-function countVowels(/* str */) {
-  throw new Error('Not implemented');
+function countVowels(str) {
+  const vowelsArr = [
+    'a',
+    'e',
+    'i',
+    'o',
+    'u',
+    'y',
+    'A',
+    'E',
+    'I',
+    'O',
+    'U',
+    'Y',
+  ];
+  let count = 0;
+  str.split('').forEach((item) => {
+    // eslint-disable-next-line no-unused-expressions
+    vowelsArr.includes(item) ? (count += 1) : 0;
+  });
+  return count;
 }
 
 /**
@@ -323,8 +342,21 @@ function countVowels(/* str */) {
  *   isPalindrome('apple') => false
  *   isPalindrome('No lemon, no melon') => true
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  const strCopy = str
+    .replaceAll(' ', '')
+    .replace(/[^a-zA-Z0-9]/g, '')
+    .toLowerCase()
+    .trim();
+  const directArr = strCopy.split('');
+  const unDirrectArr = [...directArr].reverse();
+  let result = true;
+  for (let i = 0; i <= directArr.length; i += 1) {
+    if (directArr[i] !== unDirrectArr[i]) {
+      result = false;
+    }
+  }
+  return result;
 }
 
 /**
